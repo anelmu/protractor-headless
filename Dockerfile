@@ -9,7 +9,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
 	echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y xvfb wget sudo && \
-	apt-get install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java && \
+	apt-get install -y -t jessie-backports openjdk-8-jre openjdk-8-jre-headless libcups2 && \
 	apt-get install -y bzip2 && \
     wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
     dpkg --unpack ${CHROME_PACKAGE} && \
