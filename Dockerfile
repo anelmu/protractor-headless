@@ -7,7 +7,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     node ./webdriver-versions.js --chromedriver 2.32 && \
     webdriver-manager update && \
     apt-get update && \
-	apt-get install openjdk-8-jre && \
+	apt-get install -y openjdk-8-jre && \
     apt-get install -y xvfb wget sudo && \
 	apt-get install -y bzip2 && \
     wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
