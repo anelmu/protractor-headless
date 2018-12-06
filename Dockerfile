@@ -12,6 +12,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     apt-get install -y -t jessie-backports openjdk-8-jre && \
     wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
     dpkg --unpack ${CHROME_PACKAGE} && \
+	apt-get install -y bzip2 && \
     apt-get install -f -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
