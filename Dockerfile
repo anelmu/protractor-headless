@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:8.14-stretch-slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
