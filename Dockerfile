@@ -1,4 +1,4 @@
-FROM node:8.10-slim
+FROM node:8-slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
@@ -8,6 +8,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     webdriver-manager update && \
     apt-get update && \
     apt-get install -y xvfb wget sudo && \
+	apt-get install -y -t jessie-backports ca-certificates-java && \
 	apt-get install -y -t jessie-backports openjdk-8-jre && \
 	apt-get install -y bzip2 && \
     wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
