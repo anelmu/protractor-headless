@@ -3,10 +3,10 @@ MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
 ENV CHROME_PACKAGE="google-chrome-stable_59.0.3071.115-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
-RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 2.32 && \
+RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
+    node ./webdriver-versions.js --chromedriver 2.46 && \
     webdriver-manager update && \
-    echo "deb http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
+    echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y xvfb wget sudo && \
     apt-get install -y -t jessie-backports openjdk-8-jre && \
