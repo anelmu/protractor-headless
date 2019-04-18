@@ -7,7 +7,7 @@ RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
     node ./webdriver-versions.js --chromedriver 2.46 && \
     webdriver-manager update && \
     echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
-    apt-get update && \
+    apt-get -o Acquire::Check-Valid-Until=false update && \
     apt-get install -y xvfb wget sudo && \
     apt-get install -y -t jessie-backports openjdk-8-jre && \
 	apt-get install -y bzip2 && \
