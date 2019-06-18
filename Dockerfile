@@ -13,6 +13,8 @@ RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
     apt-get install -y xvfb wget sudo && \
     apt-get install -y -t jessie-backports openjdk-8-jre && \
 	apt-get install -y bzip2 && \
+	apt-get install -y zip && \
+	apt-get install -y unzip && \
     wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
     dpkg --unpack ${CHROME_PACKAGE} && \
     apt-get install -f -y && \
