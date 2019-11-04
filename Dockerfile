@@ -2,9 +2,9 @@ FROM node:8.11.0-slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
-ENV CHROME_PACKAGE="google-chrome-stable_73.0.3683.86-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
+ENV CHROME_PACKAGE="google-chrome-stable_78.0.3904.87-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
 RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 2.46 && \
+    node ./webdriver-versions.js --chromedriver 78.0.3904.87-1 && \
     webdriver-manager update && \
 	echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list && \
 	echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list && \
