@@ -1,4 +1,4 @@
-FROM node:10.17.0-slim
+FROM node:10.17.0-jessie-slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
