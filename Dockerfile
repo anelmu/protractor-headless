@@ -2,9 +2,9 @@ FROM node:10-jessie
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
-ENV CHROME_PACKAGE="google-chrome-stable_78.0.3904.97-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
+ENV CHROME_PACKAGE="google-chrome-stable_current_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
 RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 78.0.3904.97-1 && \
+    node ./webdriver-versions.js && \
     webdriver-manager update && \
 	echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list && \
 	echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list && \
@@ -15,7 +15,7 @@ RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
 	apt-get install -y bzip2 && \
 	apt-get install -y zip && \
 	apt-get install -y unzip && \
-    wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg --unpack ${CHROME_PACKAGE} && \
     apt-get install -f -y && \
     apt-get clean && \
