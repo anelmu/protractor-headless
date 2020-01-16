@@ -1,4 +1,4 @@
-FROM node:12-jessie
+FROM node:12-alpine
 WORKDIR /tmp
 COPY webdriver-versions.js ./
 ENV CHROME_PACKAGE="google-chrome-stable_current_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
