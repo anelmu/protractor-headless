@@ -5,7 +5,6 @@ ENV CHROME_PACKAGE="google-chrome-stable_current_amd64.deb" NODE_PATH=/usr/local
 RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
     node ./webdriver-versions.js && \
     webdriver-manager update && \
-	mkdir /etc/apt/sources.list.d/jessie.list sudo && \
 	echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list && \
 	echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list && \
 	sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list && \
