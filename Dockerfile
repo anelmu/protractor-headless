@@ -1,6 +1,7 @@
 FROM node:12-stretch
 WORKDIR /tmp
 COPY webdriver-versions.js ./
+ENV CHROME_PACKAGE="google-chrome-stable_current_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
 RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
     node ./webdriver-versions.js && \
     webdriver-manager update && \
@@ -13,11 +14,12 @@ RUN npm install -g protractor@5.4.2 minimist@1.2.0 && \
 	apt-get install -y bzip2 && \
 	apt-get install -y zip && \
 	apt-get install -y unzip && \
-	apt-get update && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome*; sudo apt-get -f -y install && \
+    dpkg --unpack ${CHROME_PACKAGE} && \
+    apt-get install -f -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
+    rm ${CHROME_PACKAGE} && \
     mkdir /protractor
 COPY protractor.sh /
 COPY environment /etc/sudoers.d/
